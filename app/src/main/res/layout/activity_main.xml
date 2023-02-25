@@ -70,9 +70,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="68dp"
-            android:text="hello world"
+            android:text="@{dataVM.readText.toString()}"
+            android:textSize="20dp"
             app:fontFamily="casual"
-            app:layout_constraintTop_toBottomOf="@+id/buttonView"
-            tools:layout_editor_absoluteX="35dp" />
+            app:layout_constraintStart_toStartOf="@+id/etData"
+            app:layout_constraintTop_toBottomOf="@+id/buttonView" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
