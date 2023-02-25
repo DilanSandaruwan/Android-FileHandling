@@ -1,6 +1,7 @@
 package com.example.mysavefileapplication
 
 import android.content.Context
+import android.widget.Toast
 import java.io.*
 
 class MyFileSaver(private val context: Context) {
@@ -9,8 +10,13 @@ class MyFileSaver(private val context: Context) {
 
     fun writeToFile(content: String) {
         fileContent = content
-        context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
-            it.write(fileContent.toByteArray())
+        try{
+            context.openFileOutput(fileName, Context.MODE_PRIVATE).use {
+                it.write(fileContent.toByteArray())
+            }
+            Toast.makeText(context, "Saved Successfully!", Toast.LENGTH_SHORT).show()
+        }catch (exception: Exception){
+            Toast.makeText(context, "Error occured while saving!", Toast.LENGTH_SHORT).show()
         }
 
     }
